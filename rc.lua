@@ -402,14 +402,14 @@ globalkeys = gears.table.join(
     	      {description = "spotify", group = "launcher"}),
 
     -- KeePassXC
-    awful.key({ modkey, Shift },     "k",     function () awful.util.spawn("keepassxc") end,
+    awful.key({ modkey, "Shift" },     "k",     function () awful.util.spawn("keepassxc") end,
               {description = "keepassxc", group = "launcher"}),
 
     -- VLC
     awful.key({ modkey },	     "v",     function () awful.spawn.with_shell("vlc") end,
     	      {description = "vlc", group = "launcher"}),
     -- urxvt
-    awful.key({ modkey, Shift },	     "u",     function () awful.spawn("urxvt", { floating = true, screen = 1, tag = "2" }) end,
+    awful.key({ modkey, "Shift" },	     "u",     function () awful.spawn("urxvt", { floating = true, screen = 1, tag = "2" }) end,
               { description = "urxvt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
