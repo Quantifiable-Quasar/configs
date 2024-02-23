@@ -76,8 +76,6 @@ if ${use_color} ; then
 	else
 		PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
 	fi
-	alias treson='sudo pacman -Syu'
-	alias ls='exa -al --color=always --group-directories-first'
 	alias grep='grep --colour=auto'
 	alias egrep='egrep --colour=auto'
 	alias fgrep='fgrep --colour=auto'
@@ -93,16 +91,23 @@ fi
 unset use_color safe_term match_lhs sh
 
 alias off="poweroff"
-alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more=less
-alias u='xrandr --output eDP --brightness 1.25'
-alias i='xrandr --output eDP --brightness .5'
+alias u='xrandr --output eDP-1 --brightness 1.25'
+alias i='xrandr --output eDP-1 --brightness .5'
 alias vpn='sudo openvpn /home/tm/vpn/tressant.ovpn'
 alias g='startx'
-
+alias treson='sudo pacman -Syu'
+alias ls='exa -al --color=always --group-directories-first'
+alias sus='sudo systemctl suspend'
+alias 315='ssh tmariot@cnit315remote.tech.purdue.edu'
+alias xclip='xclip -sel clip'
+alias sduo='sudo'
+alias t='cbonsai -li'
+alias wttr='curl wttr.in/West+Lafayette?u'
+alias aweather='ansiweather -l "West Lafayette" -a false -u imperial'
 
 xhost +local:root > /dev/null 2>&1
 
@@ -147,5 +152,6 @@ ex ()
 }
 
 export PATH=/home/tm/.cargo/bin:$PATH
+# /usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/tm/.local/bin:/home/tm/jdk-19/bin:/home/tm/.cargo/bin:/home/tm/.local/share/gem/ruby/3.0.0/bin:/home/tm/.local/bin:/home/tm/jdk-19/bin:/home/tm/.cargo/bin:/home/tm/.local/share/gem/ruby/3.0.0/bin
 
-neofetch
+# cowsay -W 20 $(ip a | grep inet | grep -v inet6 | grep -v "127.0.0.1" | cut -d " " -f 6 | cut -d "/" -f 1 | tr " " "\n")

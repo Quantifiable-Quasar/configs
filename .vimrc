@@ -38,3 +38,12 @@ set wildmenu
 set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.flv,*.img,*.xlsx
 
+" Run c program
+command Run !gcc % && ./a.out
+
+call plug#begin()
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'dense-analysis/ale'
+
+call plug#end()

@@ -9,7 +9,7 @@ function scrot_full()
 end
 
 function scrot_selection()
-    scrot("sleep 0.5 && scrot -s " .. screenshot .. " -e 'xclip -selection c -t image/png < $f'", scrot_callback, "Take a screenshot of selection")
+    scrot("sleep 0.5 && scrot -s " .. screenshot .. " -f -e 'xclip -selection c -t image/png < $f'", scrot_callback, "Take a screenshot of selection")
 end
 
 function scrot_window()

@@ -182,7 +182,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "term", "www", "3", "4", "5", "6", "anki", "music", "pass" }, s, awful.layout.layouts[1])
+    awful.tag({ "term", "www", "3", "4", "5", "6", "anki", "music", "discord" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -382,6 +382,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
+    -- Binary Ninja
+    awful.key({modkey, "Shift"},   "b", function () awful.spawn.with_shell("/home/tm/BinaryNinja/binaryninja/binaryninja") end,
+              {description = "Binary Ninja launcher", group="launcher" }),
+
     -- rofi -window show
     awful.key({ modkey }, 	     "Tab",   function () awful.spawn.with_shell("rofi -show window") end,
               {description = "rofi -show window", group = "launcher"}),
@@ -400,6 +404,10 @@ globalkeys = gears.table.join(
     -- Spotify
     awful.key({ modkey },	     "y",     function () awful.util.spawn("spotify", { screen = 1, tag = "anki" } ) end,
     	      {description = "spotify", group = "launcher"}),
+
+    -- Obsidian
+    awful.key({ modkey, "Shift" },	     "o",     function () awful.util.spawn("obsidian") end,
+    	      {description = "obsidian", group = "launcher"}),
 
     -- KeePassXC
     awful.key({ modkey, "Shift" },     "k",     function () awful.util.spawn("keepassxc") end,
@@ -676,7 +684,7 @@ client.connect_signal("focus", function(c)
                            end)
 client.connect_signal("unfocus", function(c)
                                 c.border_color = beautiful.border_normal
-                                c.opacity = 0.8
+                                c.opacity = 1
                              end)
  
 
